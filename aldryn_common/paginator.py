@@ -5,14 +5,12 @@ import functools
 import math
 
 from django.conf import settings
-from django.core.paginator import (InvalidPage, Page, Paginator,
-                                   QuerySetPaginator)
+from django.core.paginator import (InvalidPage, Page, Paginator)
 
 __all__ = (
     'InvalidPage',
     'ExPaginator',
     'DiggPaginator',
-    'QuerySetDiggPaginator',
 )
 
 
@@ -294,10 +292,6 @@ class DiggPage(Page):
                 " ".join(map(str, self.trailing_range))
             ])
         )
-
-
-class QuerySetDiggPaginator(DiggPaginator, QuerySetPaginator):
-    pass
 
 
 def paginate_by(fallback=15):
